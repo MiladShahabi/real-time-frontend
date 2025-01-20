@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Digital';
+    src: url('/fonts/digital-7.ttf') format('truetype');
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.container {
+    text-align: center;
+    background-color: #47c2e4; /* Light blue background */
+    height: 125vh; /* Full height of the view */
+  }
+  
+  .header {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    color: white;
+  }
+  
+  .animatedNumber {
+    font-family: 'Digital', sans-serif;
+    font-size: 150px;
+    color: white;
+    animation: fadeIn 0.9s ease-in-out;
+}
+  
+.currentNumber {
+    font-size: 32px;
+    color: yellow;
+    font-weight: bold;
+  }
+  
+  .countdownText {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    color: white;
+  }
+  
+  .countdownValue {
+    font-family: 'Digital', sans-serif;
+    color: yellow;
+    font-size: 32px;
+  }
+
+  .chartContainer {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .tableContainer {
+    margin-top: 30px;
+    overflow-y: auto;
+    max-height: 300px;
+  }
+  
+  .table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+    text-align: center;
+    border: 1px solid #ffffff;
+  }
+  
+  .table th {
+    border: 1px solid #fff;
+    padding: 8px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .table td {
+    border: 1px solid #fff;
+    padding: 4px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .table td:nth-child(2) {
+    font-style: italic; /* Italic timestamp text */
+  }
