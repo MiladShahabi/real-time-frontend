@@ -1,44 +1,84 @@
-<<<<<<< HEAD
-# real-time-frontend
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# **Real-Time Random Number Viewer**
 
-## Getting Started
+## **Project Overview**
+This project is a two-page web application built using **Next.js** and **Node.js**. It demonstrates real-time communication between a backend server and a frontend client. The backend sends random numbers to a "room" every 10 seconds using **Socket.IO**, and the frontend dynamically displays these numbers in real time. In addition to the original requirements, I extended the project with several creative features, which are detailed below.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## **Steps to Complete the Project**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **1. Planning**
+Before starting, I outlined the tasks needed to complete the project:
+1. Set up the backend with Node.js and Socket.IO.
+2. Create a frontend using Next.js with routing between the Main Page and Data Page.
+3. Implement real-time synchronization between the backend and frontend using Socket.IO.
+4. Incorporate **enhancements beyond the requirements**, including visual and functional upgrades.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### **2. Backend Setup**
+1. **Environment Setup**:
+   - Installed and configured dependencies: `express`, `socket.io`, and `cors`.
+   - Created a Node.js server and configured it to handle Socket.IO connections.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+2. **Real-Time Logic**:
+   - Generated random numbers every 10 seconds.
+   - Broadcasted random numbers and countdown timers to connected clients in a "room."
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### **3. Frontend Setup**
+1. **Page Creation**:
+   - Created the **Main Page** (/): A simple welcome page with navigation to the Data Page.
+   - Created the **Data Page** (/data): Displays real-time random numbers and enhancements like the timer, chart, and table.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Real-Time Communication**:
+   - Integrated Socket.IO-client to connect to the backend.
+   - Used `useEffect` to handle room joining and event listeners.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+3. **Responsive Design**:
+   - Implemented a responsive chart and ensured the layout adapts to different screen sizes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### **4. Deployment**
+1. Hosted the application on a **Virtual Private Server (VPS)** for global accessibility.
+2. Configured **Nginx** as a web server for efficient request handling.
+3. Set up an **SSL certificate** to enable secure HTTPS connections.
+4. Connected the application to a custom **domain name**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
->>>>>>> 19c9272 (Initial commit from Create Next App)
+## **Enhancements Beyond the Requirements**
+
+### **1. Real-Time Countdown Timer**
+I added a countdown timer synchronized with the backend, ensuring complete alignment with random number updates.
+
+### **2. Line Chart Visualization**
+Using **Recharts**, I implemented a line chart that dynamically updates to show trends in random numbers over time.
+
+### **3. Data Table with Timestamps**
+To provide historical context, I included a table displaying each random number alongside its timestamp.
+
+### **4. UI Design Inspired by Watergenics**
+- Designed a blue-and-white theme to match the spirit of Watergenics.
+- Added an Arctic water source background for thematic relevance.
+
+---
+
+## **Challenges Faced and Solutions**
+
+### **Challenge 1: Timer Synchronization**
+- **Problem**: The countdown timer was initially implemented on the frontend, causing discrepancies with the backend’s timing.
+- **Solution**: Moved the timer logic to the backend. Now, the backend sends the timer value along with the random number, ensuring perfect synchronization.
+
+---
+
+### **Challenge 2: Duplicate Room Join Requests**
+- **Problem**: Upon navigating to the Data Page, the `joinRoom` event was emitted twice, resulting in duplicate logs on the backend.
+- **Solution**: Disabled **React Strict Mode** in `next.config.js`, which prevented `useEffect` from executing multiple times during development.
+
+---
+
+### **Conclusion**
+This project successfully demonstrates real-time data synchronization using Socket.IO. Through thoughtful planning and problem-solving, I enhanced the application beyond the original requirements, delivering a professional and visually appealing solution.
