@@ -7,12 +7,12 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
-import { io } from "socket.io-client";
+import { initiateSocket, getSocket } from "../utils/socket";
 
 import styles from "./../styles/data.module.css"; // Import the CSS file for styling
 
-// Initialize the socket connection to the backend
-const socket = io("http://localhost:3001");
+initiateSocket(); // Initialize the socket connection
+const socket = getSocket(); // Retrieve the socket instance
 
 export default function DataPage() {
   // State to store the data for the chart
@@ -26,6 +26,8 @@ export default function DataPage() {
 
   // Handle socket connections and data updates
   useEffect(() => {
+    initiateSocket(); // Initialize the socket connection
+    const socket = getSocket(); // Retrieve the socket instance
     // Join the specific room on the server
     socket.emit("joinRoom", "randomNumbersRoom");
 
