@@ -9,11 +9,11 @@ This project is a two-page web application built using **Next.js** and **Node.js
 ## **Steps to Complete the Project**
 
 ### **1. Planning**
-- [ ] Review the project requirements.
-- [ ] Identify tools and libraries to be used:
+- [x] Review the project requirements.
+- [x] Identify tools and libraries to be used:
   - Backend: Node.js, Express, Socket.IO.
   - Frontend: Next.js, Socket.IO-client, Recharts (for charts), CSS (for styling).
-- [ ] Plan project structure:
+- [x] Plan project structure:
   - Separate backend and frontend repositories.
   - Use modular file organization.
 
@@ -22,28 +22,28 @@ This project is a two-page web application built using **Next.js** and **Node.js
 ### **2. Backend Setup**
 
 #### **Environment Setup**
-- [ ] Install Node.js on the development machine.
-- [ ] Initialize a new Node.js project:
+- [x] Install Node.js on the development machine.
+- [x] Initialize a new Node.js project:
   ```bash
   npm init -y
   ```
-- [ ] Install required dependencies:
+- [x] Install required dependencies:
   ```bash
   npm install express socket.io cors
   ```
 
 #### **Server Implementation**
-- [ ] Set up an Express server.
-- [ ] Configure `Socket.IO` for real-time communication.
-- [ ] Handle client connections and room joining:
-  - [ ] `connection`: Log when a client connects.
-  - [ ] `joinRoom`: Allow clients to join a specific room.
-  - [ ] `disconnect`: Log when a client disconnects.
-- [ ] Create a timer that:
-  - [ ] Counts down from 10 to 0.
-  - [ ] Sends a random number and resets the timer at 0.
-  - [ ] Updates clients with the timer value every second.
-- [ ] Test the backend to ensure it broadcasts the correct events:
+- [x] Set up an Express server.
+- [x] Configure `Socket.IO` for real-time communication.
+- [x] Handle client connections and room joining:
+  - [x] `connection`: Log when a client connects.
+  - [x] `joinRoom`: Allow clients to join a specific room.
+  - [x] `disconnect`: Log when a client disconnects.
+- [x] Create a timer that:
+  - [x] Counts down from 10 to 0.
+  - [x] Sends a random number and resets the timer at 0.
+  - [x] Updates clients with the timer value every second.
+- [x] Test the backend to ensure it broadcasts the correct events:
   - `newNumber` for random numbers and timer resets.
   - `updateTimer` for countdown updates.
 
@@ -52,74 +52,74 @@ This project is a two-page web application built using **Next.js** and **Node.js
 ### **3. Frontend Setup**
 
 #### **Initialize the Project**
-- [ ] Create a Next.js project:
+- [x] Create a Next.js project:
   ```bash
   npx create-next-app real-time-app-frontend
   ```
-- [ ] Install Socket.IO-client:
+- [x] Install Socket.IO-client:
   ```bash
   npm install socket.io-client recharts
   ```
 
 #### **Main Page (/)** 
-- [ ] Create the Main Page component.
-- [ ] Add a welcome message.
-- [ ] Create a button to navigate to `/data`.
+- [x] Create the Main Page component.
+- [x] Add a welcome message.
+- [x] Create a button to navigate to `/data`.
 
 #### **Data Page (/data)**
-- [ ] Create the Data Page component.
-- [ ] Integrate the `socket.js` utility:
-  - [ ] Add functions for initializing and retrieving the socket instance.
-- [ ] Implement real-time updates:
-  - [ ] Join the "randomNumbersRoom".
-  - [ ] Listen for `newNumber` and `updateTimer` events.
-  - [ ] Update the displayed random number and timer dynamically.
+- [x] Create the Data Page component.
+- [x] Integrate the `socket.js` utility:
+  - [x] Add functions for initializing and retrieving the socket instance.
+- [x] Implement real-time updates:
+  - [x] Join the "randomNumbersRoom".
+  - [x] Listen for `newNumber` and `updateTimer` events.
+  - [x] Update the displayed random number and timer dynamically.
 
 #### **Enhance the UI**
-- [ ] Style the pages using CSS modules:
+- [x] Style the pages using CSS modules:
   - Main Page: Simple design with a button.
   - Data Page: Responsive layout with chart and table.
-- [ ] Use blue-and-white color codes with an Arctic water source background.
+- [x] Use blue-and-white color codes with an Arctic water source background.
 
 #### **Additional Features**
-- [ ] Add a **countdown timer** synchronized with the backend.
-- [ ] Implement a **line chart** to visualize random number trends.
-- [ ] Create a **table** to display random numbers with timestamps.
+- [x] Add a **countdown timer** synchronized with the backend.
+- [x] Implement a **line chart** to visualize random number trends.
+- [x] Create a **table** to display random numbers with timestamps.
 
 ---
 
 ### **4. Deployment**
 
 #### **Set Up VPS**
-- [ ] Acquire a Virtual Private Server (VPS).
-- [ ] Set up the server environment:
-  - [ ] Install Node.js.
-  - [ ] Install Nginx as a web server.
-  - [ ] Install PM2 for managing Node.js processes.
+- [x] Acquire a Virtual Private Server (VPS).
+- [x] Set up the server environment:
+  - [x] Install Node.js.
+  - [x] Install Nginx as a web server.
+  - [x] Install PM2 for managing Node.js processes.
 
 #### **Deploy the Backend**
-- [ ] Transfer backend code to the VPS.
-- [ ] Start the backend using PM2:
+- [x] Transfer backend code to the VPS.
+- [x] Start the backend using PM2:
   ```bash
   pm2 start server.js
   ```
 
 #### **Deploy the Frontend**
-- [ ] Transfer frontend code to the VPS.
-- [ ] Build the Next.js application:
+- [x] Transfer frontend code to the VPS.
+- [x] Build the Next.js application:
   ```bash
   npm run build
   ```
-- [ ] Start the frontend application using PM2.
+- [x] Start the frontend application using PM2.
 
 #### **Set Up Nginx**
-- [ ] Configure Nginx as a reverse proxy:
-  - [ ] Route `/` to the frontend.
-  - [ ] Route `/api` to the backend.
-- [ ] Secure the application with an SSL certificate:
-  - [ ] Install Certbot.
-  - [ ] Obtain and configure an SSL certificate.
-- [ ] Test the deployment by accessing the application via the custom domain with HTTPS.
+- [x] Configure Nginx as a reverse proxy:
+  - [x] Route `/` to the frontend.
+  - [x] Route `/api` to the backend.
+- [x] Secure the application with an SSL certificate:
+  - [x] Install Certbot.
+  - [x] Obtain and configure an SSL certificate.
+- [x] Test the deployment by accessing the application via the custom domain with HTTPS.
 
 ---
 
@@ -144,41 +144,41 @@ To provide historical context, I included a table displaying each random number 
 
 ### **Challenge 1: Timer Synchronization**
 #### **Problem**
-- [ ] The countdown timer was initially implemented on the **frontend**, starting when the Data Page loaded.
-- [ ] This caused a mismatch with the backend timer, which reset every 10 seconds.
+- [x] The countdown timer was initially implemented on the **frontend**, starting when the Data Page loaded.
+- [x] This caused a mismatch with the backend timer, which reset every 10 seconds.
 
 #### **Troubleshooting**
-- [ ] Investigated the root cause by checking the flow of timer logic between frontend and backend.
-- [ ] Observed that the frontend started its own timer independently, leading to discrepancies.
+- [x] Investigated the root cause by checking the flow of timer logic between frontend and backend.
+- [x] Observed that the frontend started its own timer independently, leading to discrepancies.
 
 #### **Solution**
-- [ ] Moved the timer logic to the **backend**:
-  - [ ] Updated the backend to include the timer value in the `newNumber` event.
-  - [ ] Modified the frontend to receive and display the timer value from the backend instead of maintaining its own timer.
-- [ ] Tested the solution by ensuring the frontend timer reset perfectly with the backend's updates.
+- [x] Moved the timer logic to the **backend**:
+  - [x] Updated the backend to include the timer value in the `newNumber` event.
+  - [x] Modified the frontend to receive and display the timer value from the backend instead of maintaining its own timer.
+- [x] Tested the solution by ensuring the frontend timer reset perfectly with the backend's updates.
 
 ---
 
 ### **Challenge 2: Duplicate Room Join Requests**
 #### **Problem**
-- [ ] Upon navigating to the **Data Page**, the `joinRoom` event was emitted twice.
-- [ ] This caused the backend to log duplicate `User joined room: randomNumbersRoom` messages.
-- [ ] The issue occurred because **React Strict Mode** in development caused `useEffect` to run twice.
+- [x] Upon navigating to the **Data Page**, the `joinRoom` event was emitted twice.
+- [x] This caused the backend to log duplicate `User joined room: randomNumbersRoom` messages.
+- [x] The issue occurred because **React Strict Mode** in development caused `useEffect` to run twice.
 
 #### **Troubleshooting**
-- [ ] Analyzed the behavior of `useEffect` and found that it was being executed twice in development mode.
-- [ ] Confirmed the issue was caused by **React Strict Mode**, which intentionally mounts and unmounts components twice to catch potential bugs.
+- [x] Analyzed the behavior of `useEffect` and found that it was being executed twice in development mode.
+- [x] Confirmed the issue was caused by **React Strict Mode**, which intentionally mounts and unmounts components twice to catch potential bugs.
 
 #### **Solution**
-- [ ] Disabled **React Strict Mode** in the `next.config.js` file by setting:
+- [x] Disabled **React Strict Mode** in the `next.config.js` file by setting:
   ```javascript
   const nextConfig = {
     reactStrictMode: false,
   };
   module.exports = nextConfig;
   ```
-- [ ] Verified that `useEffect` only executed once after the change.
-- [ ] Tested the solution to ensure only a single `joinRoom` event was emitted.
+- [x] Verified that `useEffect` only executed once after the change.
+- [x] Tested the solution to ensure only a single `joinRoom` event was emitted.
 
 ---
 
